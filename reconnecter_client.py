@@ -21,7 +21,7 @@ def monter_partage(partage, point_montage):
         # Monte le partage CIFS
         subprocess.run(
             [
-                'sudo', 'mount', '-t', 'cifs',
+                'mount', '-t', 'cifs',
                 partage,
                 point_montage,
                 '-o',
@@ -30,6 +30,7 @@ def monter_partage(partage, point_montage):
             ],
             check=True
         )
+
         print(f"[SUCCÈS] Montage réussi pour {partage} sur {point_montage}.")
     except subprocess.CalledProcessError as e:
         print(f"[ERREUR] Impossible de monter {partage} : {e}")
